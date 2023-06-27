@@ -1,0 +1,73 @@
+DOWNCASTING, UPCASTING, HASHCODE, EQUALS, ABSTRACCION 
+ package test;
+import domain.*;
+/**
+ * @author Hilda
+ */
+public class TestClaseObject {
+    public static void main(String[] args) {
+        Empleado empleado1 = new Empleado("Juan", 5000);
+        Empleado empleado2 = new Empleado("juan", 5000);
+        if(empleado1 == empleado2){
+            System.out.println("tienen la misma referencia en memoria");
+        }
+        else{
+             System.out.println("los objetos son distintos en contenidos ");
+        }
+        if(empleado1.equals(empleado2)){
+            System.out.println("los objetos son iguales en contenidos");
+        }
+        else{
+            System.out.println("los objetos son distintos en contenido");
+        }
+        if(empleado1.hashCode() == empleado2.hashCode()){
+            System.out.println("el valor de hashCode es igual");
+        }
+        else{
+            System.out.println("el valor hashCode es diferente");
+        }
+       
+    }
+}
+package test;
+import domain.*;
+/**
+ * @author hilda DEFINIMOS LA CLASE PADRE ABSTRACTA
+ */
+public class TestAbstractas {
+    public static void main(String[] args) {
+        FiguraGeometrica figura = new Rectangulo("Rectangulo");
+        figura.dibujar();
+    }
+}
+
+package domain;
+
+/**
+ * @author HILDA, DEFINIMOS LA CLASE PADRE ABSTRACTA
+ */
+public abstract class FiguraGeometrica {
+    protected String tipoFigura;
+    protected FiguraGeometrica(String tipoFigura){
+        this.tipoFigura = tipoFigura;
+    }
+    // METODO ABSTRACTO
+    public abstract void dibujar();
+    //AGREGAMOS LOS METODOS GET AND SET
+
+    public String getTipoFigura() {
+        return tipoFigura;
+    }
+
+    public void setTipoFigura(String tipoFigura) {
+        this.tipoFigura = tipoFigura;
+    }
+
+    @Override
+    public String toString() {
+        return "FiguraGeometrica{" + "tipoFigura=" + tipoFigura + '}';
+    }
+}    
+
+
+
